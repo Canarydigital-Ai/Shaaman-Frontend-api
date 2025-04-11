@@ -8,8 +8,9 @@ import ShaamanSlider5 from '../assets/ShaamanSlider5.png';
 
 const ComingSoon: React.FC = () => {
   const [email, setEmail] = useState('');
-  const [countdown, setCountdown] = useState({ hours: 3, minutes: 42, seconds: 0 });
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [showToast, setShowToast] = useState(false);
+  const [timerEnded, setTimerEnded] = useState(false);
   
   const sliderImages = [
     ShaamanSlider1,
@@ -19,24 +20,52 @@ const ComingSoon: React.FC = () => {
     ShaamanSlider5
   ];
 
-  // Countdown timer effect
+  // Calculate the target date (5 days from now)
   useEffect(() => {
+    // Get current date and time
+    const now = new Date();
+    
+    // Calculate target date (5 days from now)
+    const targetDate = new Date(now);
+    targetDate.setDate(now.getDate() + 5);
+    
+    // Set to the end of the day
+    targetDate.setHours(23, 59, 59, 999);
+    
+    // Update countdown immediately
+    updateCountdown(targetDate);
+    
+    // Set up interval for countdown
     const timer = setInterval(() => {
-      setCountdown(prevTime => {
-        if (prevTime.seconds > 0) {
-          return { ...prevTime, seconds: prevTime.seconds - 1 };
-        } else if (prevTime.minutes > 0) {
-          return { ...prevTime, minutes: prevTime.minutes - 1, seconds: 59 };
-        } else if (prevTime.hours > 0) {
-          return { hours: prevTime.hours - 1, minutes: 59, seconds: 59 };
-        }
+      if (updateCountdown(targetDate)) {
         clearInterval(timer);
-        return prevTime;
-      });
+      }
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
+
+  // Update countdown timer
+  const updateCountdown = (targetDate: Date): boolean => {
+    const now = new Date();
+    const difference = targetDate.getTime() - now.getTime();
+    
+    // Check if timer has ended
+    if (difference <= 0) {
+      setTimerEnded(true);
+      setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      return true; // Timer ended
+    }
+    
+    // Calculate remaining time
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    
+    setCountdown({ days, hours, minutes, seconds });
+    return false; // Timer still running
+  };
  
   // Toast message effect - hide after 3 seconds
   useEffect(() => {
@@ -78,15 +107,37 @@ const ComingSoon: React.FC = () => {
           <div className="text-center mb-12">
             <p className="text-lg sm:text-2xl font-light mb-1 leading-[25px] sm:leading-[30px] pb-5 sm:pb-4 md:pb-8">Stay Tuned <br /> Our New Website is</p>
             
-            <h1 className="text-4xl sm:text-5xl md:text-[64px] font-serif font-light tracking-wide mb-8 nanum-myeongjo-regular">COMING SOON</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-[64px] font-serif font-light tracking-wide mb-8 nanum-myeongjo-regular">
+              {timerEnded ? 'LAUNCHING NOW' : 'COMING SOON'}
+            </h1>
             
             {/* Countdown Timer */}
-            <div className="flex justify-center items-center text-4xl sm:text-5xl font-light mb-12">
-              <span>{formatTime(countdown.hours)}</span>
-              <span className="mx-3 md:mx-4">:</span>
-              <span>{formatTime(countdown.minutes)}</span>
-              <span className="mx-3 md:mx-4">:</span>
-              <span>{formatTime(countdown.seconds)}</span>
+            <div className="flex justify-center items-center text-2xl sm:text-3xl md:text-4xl font-light mb-12">
+              {!timerEnded ? (
+                <>
+                  <div className="flex flex-col items-center mx-2 md:mx-3">
+                    <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.days)}</span>
+                    <span className="text-xs sm:text-sm mt-1">Days</span>
+                  </div>
+                  <span className="mx-1 md:mx-2">:</span>
+                  <div className="flex flex-col items-center mx-2 md:mx-3">
+                    <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.hours)}</span>
+                    <span className="text-xs sm:text-sm mt-1">Hours</span>
+                  </div>
+                  <span className="mx-1 md:mx-2">:</span>
+                  <div className="flex flex-col items-center mx-2 md:mx-3">
+                    <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.minutes)}</span>
+                    <span className="text-xs sm:text-sm mt-1">Minutes</span>
+                  </div>
+                  <span className="mx-1 md:mx-2">:</span>
+                  <div className="flex flex-col items-center mx-2 md:mx-3">
+                    <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.seconds)}</span>
+                    <span className="text-xs sm:text-sm mt-1">Seconds</span>
+                  </div>
+                </>
+              ) : (
+                <span className="text-2xl sm:text-3xl">Our website is now live!</span>
+              )}
             </div>
             
             {/* Description */}
@@ -99,13 +150,13 @@ const ComingSoon: React.FC = () => {
           </div>
 
           {/* Email Form */}
-          <form onSubmit={handleSubmit} className="flex rounded-[15px]  sm:h-[66px] border">
+          <form onSubmit={handleSubmit} className="flex rounded-[15px] sm:h-[66px] border">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email"
-              className="flex-grow  px-1 sm:px-4 py-2 placeholder:text-[#A29F9E] focus:outline-none text-sm sm:text-base"
+              className="flex-grow px-1 sm:px-4 py-2 placeholder:text-[#A29F9E] focus:outline-none text-sm sm:text-base"
               required
             />
             <button
@@ -129,8 +180,6 @@ const ComingSoon: React.FC = () => {
           <span>Thank you! Your email has been submitted successfully.</span>
         </div>
     
-
-      {/* Right side image slider */}
       {/* Right side image slider */}
       <div className="w-full md:w-[55%] relative overflow-hidden bg-[linear-gradient(to_bottom_right,_#F6F1E8,_#FFF9EF)]">
         {/* Gradient overlay */}
