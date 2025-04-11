@@ -14,11 +14,11 @@ const ComingSoon: React.FC = () => {
   const [timerEnded, setTimerEnded] = useState(false);
   
   const sliderImages = [
-    ShaamanSlider3,
-    ShaamanSlider2,
     ShaamanSlider1,
-    ShaamanSlider5,
-    ShaamanSlider4
+    ShaamanSlider2,
+    ShaamanSlider3,
+    ShaamanSlider4,
+    ShaamanSlider5
   ];
 
   // Calculate the target date (5 days from now)
@@ -92,64 +92,21 @@ const ComingSoon: React.FC = () => {
     return time < 10 ? `0${time}` : time;
   };
 
-  // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8 } }
-  };
-  
-  const slideUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-  
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const timerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.8
-      }
-    }
-  };
-
-  const timerItem = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        type: "spring", 
-        stiffness: 100 
-      }
-    }
-  };
-
   return (
     <div className="flex flex-col md:flex-row w-full">
       {/* Left side content */}
       <motion.div 
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
         className="w-full md:w-[45%] flex flex-col justify-center items-center p-8 md:p-16 bg-[linear-gradient(to_bottom_right,_#F6F1E8,_#FFF9EF)]"
       >
         <div className="max-w-xl w-full">
           {/* Logo */}
           <motion.div 
-            variants={slideUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             className="mb-10 flex justify-center"
           >
             <div className="text-amber-800 font-serif text-xl">
@@ -158,19 +115,20 @@ const ComingSoon: React.FC = () => {
           </motion.div>
 
           {/* Coming Soon Text */}
-          <motion.div 
-            variants={staggerContainer}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12">
             <motion.p 
-              variants={slideUp}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg sm:text-2xl font-light mb-1 leading-[25px] sm:leading-[30px] pb-5 sm:pb-4 md:pb-8"
             >
               Stay Tuned <br /> Our New Website is
             </motion.p>
             
             <motion.h1 
-              variants={slideUp}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-[64px] font-serif font-light tracking-wide mb-8 nanum-myeongjo-regular"
             >
               {timerEnded ? 'LAUNCHING NOW' : 'COMING SOON'}
@@ -178,27 +136,64 @@ const ComingSoon: React.FC = () => {
             
             {/* Countdown Timer */}
             <motion.div 
-              variants={timerContainer}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               className="flex justify-center items-center text-2xl sm:text-3xl md:text-4xl font-light mb-12"
             >
               {!timerEnded ? (
                 <>
-                  <motion.div variants={timerItem} className="flex flex-col items-center mx-2 md:mx-3">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
+                    className="flex flex-col items-center mx-2 md:mx-3"
+                  >
                     <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.days)}</span>
                     <span className="text-xs sm:text-sm mt-1">Days</span>
                   </motion.div>
-                  <motion.span variants={timerItem} className="mx-1 md:mx-2">:</motion.span>
-                  <motion.div variants={timerItem} className="flex flex-col items-center mx-2 md:mx-3">
+                  <motion.span 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                    className="mx-1 md:mx-2"
+                  >:</motion.span>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.9 }}
+                    className="flex flex-col items-center mx-2 md:mx-3"
+                  >
                     <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.hours)}</span>
                     <span className="text-xs sm:text-sm mt-1">Hours</span>
                   </motion.div>
-                  <motion.span variants={timerItem} className="mx-1 md:mx-2">:</motion.span>
-                  <motion.div variants={timerItem} className="flex flex-col items-center mx-2 md:mx-3">
+                  <motion.span 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1.0 }}
+                    className="mx-1 md:mx-2"
+                  >:</motion.span>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1.1 }}
+                    className="flex flex-col items-center mx-2 md:mx-3"
+                  >
                     <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.minutes)}</span>
                     <span className="text-xs sm:text-sm mt-1">Minutes</span>
                   </motion.div>
-                  <motion.span variants={timerItem} className="mx-1 md:mx-2">:</motion.span>
-                  <motion.div variants={timerItem} className="flex flex-col items-center mx-2 md:mx-3">
+                  <motion.span 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1.2 }}
+                    className="mx-1 md:mx-2"
+                  >:</motion.span>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1.3 }}
+                    className="flex flex-col items-center mx-2 md:mx-3"
+                  >
                     <span className="text-3xl sm:text-4xl md:text-5xl">{formatTime(countdown.seconds)}</span>
                     <span className="text-xs sm:text-sm mt-1">Seconds</span>
                   </motion.div>
@@ -217,7 +212,9 @@ const ComingSoon: React.FC = () => {
             
             {/* Description */}
             <motion.p 
-              variants={slideUp}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
               className="text-center text-base sm:text-lg md:text-xl text-gray-700 mb-8 leading-relaxed"
             >
               This one leans into a mystical, high-end vibe,<br className="hidden sm:block" />
@@ -225,11 +222,13 @@ const ComingSoon: React.FC = () => {
               Want me to try a version that's more modern-<br className="hidden sm:block" />
               chic, bold-luxury, or classic-romantic next?
             </motion.p>
-          </motion.div>
+          </div>
 
           {/* Email Form */}
           <motion.form 
-            variants={slideUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.6 }}
             onSubmit={handleSubmit} 
             className="flex rounded-[15px] sm:h-[66px] border"
           >
@@ -275,7 +274,7 @@ const ComingSoon: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
+        transition={{ duration: 1 }}
         className="w-full md:w-[55%] relative overflow-hidden bg-[linear-gradient(to_bottom_right,_#F6F1E8,_#FFF9EF)]"
       >
         {/* Gradient overlay */}
@@ -286,18 +285,19 @@ const ComingSoon: React.FC = () => {
           className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10"
         ></motion.div>
         
-        {/* Image slider */}
-        <div className="animate-scroll flex space-x-3">
+        {/* Image slider with persistent animation */}
+        <div className="animate-scroll flex space-x-3" style={{ willChange: 'transform' }}>
           {/* First set of images */}
           {sliderImages.map((image, index) => (
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 + (index * 0.15) }}
+              transition={{ duration: 0.5 }}
               key={index}
               src={image}
               className="h-[50vh] sm:h-screen object-cover"
               alt={`Shaaman Jewelry ${index + 1}`}
+              loading="eager"
             />
           ))}
           {/* Duplicate set of images for seamless scrolling */}
@@ -305,11 +305,12 @@ const ComingSoon: React.FC = () => {
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 + ((index + 5) * 0.15) }}
+              transition={{ duration: 0.5 }}
               key={`duplicate-${index}`}
               src={image}
               className="h-[50vh] sm:h-screen object-cover"
               alt={`Shaaman Jewelry ${index + 1}`}
+              loading="eager"
             />
           ))}
         </div>
