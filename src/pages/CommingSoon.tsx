@@ -14,11 +14,11 @@ const ComingSoon: React.FC = () => {
   const [timerEnded, setTimerEnded] = useState(false);
   
   const sliderImages = [
-    ShaamanSlider1,
-    ShaamanSlider2,
     ShaamanSlider3,
-    ShaamanSlider4,
-    ShaamanSlider5
+    ShaamanSlider2,
+    ShaamanSlider1,
+    ShaamanSlider5,
+    ShaamanSlider4
   ];
 
   // Calculate the target date (5 days from now)
