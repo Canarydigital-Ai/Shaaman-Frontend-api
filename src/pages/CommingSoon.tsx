@@ -9,7 +9,6 @@ import ShaamanSlider5 from '../assets/ShaamanSlider5.png';
 const ComingSoon: React.FC = () => {
   const [email, setEmail] = useState('');
   const [countdown, setCountdown] = useState({ hours: 3, minutes: 42, seconds: 0 });
-  const [showToast, setShowToast] = useState(false);
   
   const sliderImages = [
     ShaamanSlider1,
@@ -37,25 +36,12 @@ const ComingSoon: React.FC = () => {
 
     return () => clearInterval(timer);
   }, []);
-
-  // Toast message effect - hide after 3 seconds
-  useEffect(() => {
-    if (showToast) {
-      const toastTimer = setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
-      
-      return () => clearTimeout(toastTimer);
-    }
-  }, [showToast]);
  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle email submission logic here
     console.log('Email submitted:', email);
     setEmail('');
-    // Show toast message
-    setShowToast(true);
   };
 
   const formatTime = (time: number) => {
@@ -76,60 +62,49 @@ const ComingSoon: React.FC = () => {
 
           {/* Coming Soon Text */}
           <div className="text-center mb-12">
-            <p className="text-2xl font-light mb-1 leading-[30px]">Stay Tuned <br /> Our New Website is</p>
+            <p className="text-lg sm:text-2xl font-light mb-1 leading-[25px] sm:leading-[30px] pb-5 sm:pb-4 md:pb-8">Stay Tuned <br /> Our New Website is</p>
             
-            <h1 className="text-[64px] font-serif font-light tracking-wide mb-8 nanum-myeongjo-regular">COMING SOON</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-[64px] font-serif font-light tracking-wide mb-8 nanum-myeongjo-regular">COMING SOON</h1>
             
             {/* Countdown Timer */}
-            <div className="flex justify-center items-center text-5xl font-light mb-12">
+            <div className="flex justify-center items-center text-4xl sm:text-5xl font-light mb-12">
               <span>{formatTime(countdown.hours)}</span>
-              <span className="mx-4">:</span>
+              <span className="mx-3 md:mx-4">:</span>
               <span>{formatTime(countdown.minutes)}</span>
-              <span className="mx-4">:</span>
+              <span className="mx-3 md:mx-4">:</span>
               <span>{formatTime(countdown.seconds)}</span>
             </div>
             
             {/* Description */}
-            <p className="text-center text-xl text-gray-700 mb-8 leading-relaxed">
-              This one leans into a mystical, high-end vibe,<br />
-              perfect for a premium jewelry experience.<br />
-              Want me to try a version that's more modern-<br />
+            <p className="text-center text-base sm:text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+              This one leans into a mystical, high-end vibe,<br className="hidden sm:block" />
+              perfect for a premium jewelry experience.<br className="hidden sm:block" />
+              Want me to try a version that's more modern-<br className="hidden sm:block" />
               chic, bold-luxury, or classic-romantic next?
             </p>
           </div>
 
           {/* Email Form */}
-          <form onSubmit={handleSubmit} className="flex rounded-[15px] h-[66px] border">
+          <form onSubmit={handleSubmit} className="flex rounded-[15px]  sm:h-[66px] border">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email"
-              className="flex-grow px-4 py-2 placeholder:text-[#A29F9E] focus:outline-none"
+              className="flex-grow  px-1 sm:px-4 py-2 placeholder:text-[#A29F9E] focus:outline-none text-sm sm:text-base"
               required
             />
             <button
               type="submit"
-              className="bg-black text-white px-6 py-2 rounded-r-[15px] font-medium hover:bg-gray-800 transition"
+              className="bg-black text-white px-6 py-2 rounded-r-[15px] font-medium hover:bg-gray-800 transition text-sm sm:text-base"
             >
               Send
             </button>
           </form>
         </div>
-        
-        {/* Toast Message */}
-        <div 
-          className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-3 rounded-md shadow-lg transition-opacity duration-300 flex items-center z-50 ${
-            showToast ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-        >
-          <svg className="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-          <span>Thank you! Your email has been submitted successfully.</span>
-        </div>
       </div>
 
+      {/* Right side image slider */}
       {/* Right side image slider */}
       <div className="w-full md:w-[55%] relative overflow-hidden bg-[linear-gradient(to_bottom_right,_#F6F1E8,_#FFF9EF)]">
         {/* Gradient overlay */}
@@ -137,22 +112,22 @@ const ComingSoon: React.FC = () => {
         
         {/* Image slider */}
         <div className="animate-scroll flex space-x-3">
-          {/* First set of logos */}
-          {sliderImages.map((logo, index) => (
+          {/* First set of images */}
+          {sliderImages.map((image, index) => (
             <img
               key={index}
-              src={logo}
-              className=""
-              alt={`Client Logo ${index + 1}`}
+              src={image}
+              className="h-[50vh] sm:h-screen object-cover"
+              alt={`Shaaman Jewelry ${index + 1}`}
             />
           ))}
-          {/* Duplicate set of logos for seamless scrolling */}
-          {sliderImages.map((logo, index) => (
+          {/* Duplicate set of images for seamless scrolling */}
+          {sliderImages.map((image, index) => (
             <img
               key={`duplicate-${index}`}
-              src={logo}
-              className=""
-              alt={`Client Logo ${index + 1}`}
+              src={image}
+              className="h-[50vh] sm:h-screen object-cover"
+              alt={`Shaaman Jewelry ${index + 1}`}
             />
           ))}
         </div>
