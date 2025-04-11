@@ -9,6 +9,7 @@ import ShaamanSlider5 from '../assets/ShaamanSlider5.png';
 const ComingSoon: React.FC = () => {
   const [email, setEmail] = useState('');
   const [countdown, setCountdown] = useState({ hours: 3, minutes: 42, seconds: 0 });
+  const [showToast, setShowToast] = useState(false);
   
   const sliderImages = [
     ShaamanSlider1,
@@ -37,11 +38,24 @@ const ComingSoon: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
  
+  // Toast message effect - hide after 3 seconds
+  useEffect(() => {
+    if (showToast) {
+      const toastTimer = setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+      
+      return () => clearTimeout(toastTimer);
+    }
+  }, [showToast]);
+ 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle email submission logic here
     console.log('Email submitted:', email);
     setEmail('');
+    // Show toast message
+    setShowToast(true);
   };
 
   const formatTime = (time: number) => {
@@ -103,6 +117,18 @@ const ComingSoon: React.FC = () => {
           </form>
         </div>
       </div>
+
+      <div 
+          className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-3 rounded-md shadow-lg transition-opacity duration-300 flex items-center z-50 ${
+            showToast ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <svg className="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>Thank you! Your email has been submitted successfully.</span>
+        </div>
+    
 
       {/* Right side image slider */}
       {/* Right side image slider */}
