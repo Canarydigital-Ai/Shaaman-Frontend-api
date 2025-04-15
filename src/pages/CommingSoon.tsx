@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/LogoMain.png";
 import ShaamanSlider1 from "../assets/ShaamanSlider1.png";
 import ShaamanSlider2 from "../assets/ShaamanSlider2.png";
 import ShaamanSlider3 from "../assets/ShaamanSlider3.png";
@@ -119,7 +119,7 @@ const ComingSoon: React.FC = () => {
             className="mb-10 flex justify-center"
           >
             <div className="text-amber-800 font-serif text-xl">
-              <img src={Logo} alt="shaaman" />
+              <img src={Logo} alt="shaaman" width={120} />
             </div>
           </motion.div>
 
