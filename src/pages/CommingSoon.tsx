@@ -28,26 +28,29 @@ const ComingSoon: React.FC = () => {
 
   // Calculate the target date (5 days from now)
   useEffect(() => {
-    // Get current date and time
-    const now = new Date();
-
-    // Calculate target date (5 days from now)
-    const targetDate = new Date(now);
-    targetDate.setDate(now.getDate() + 5);
-
+    // Set the specific start date: April 11, 2025
+    const startDate = new Date("2025-04-11T00:00:00");
+    
+    // Calculate target date (5 days from start date)
+    const targetDate = new Date(startDate);
+    targetDate.setDate(startDate.getDate() + 5);
+    
     // Set to the end of the day
     targetDate.setHours(23, 59, 59, 999);
-
+    
+    // This means the countdown will end on April 16, 2025 at 23:59:59
+    console.log("Countdown will end on:", targetDate.toLocaleString());
+    
     // Update countdown immediately
     updateCountdown(targetDate);
-
+    
     // Set up interval for countdown
     const timer = setInterval(() => {
       if (updateCountdown(targetDate)) {
         clearInterval(timer);
       }
     }, 1000);
-
+    
     return () => clearInterval(timer);
   }, []);
 
@@ -55,14 +58,14 @@ const ComingSoon: React.FC = () => {
   const updateCountdown = (targetDate: Date): boolean => {
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
-
+    
     // Check if timer has ended
     if (difference <= 0) {
       setTimerEnded(true);
       setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       return true; // Timer ended
     }
-
+    
     // Calculate remaining time
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
@@ -70,11 +73,10 @@ const ComingSoon: React.FC = () => {
     );
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
+    
     setCountdown({ days, hours, minutes, seconds });
     return false; // Timer still running
   };
-
   // Toast message effect - hide after 3 seconds
   useEffect(() => {
     if (showToast) {
@@ -237,7 +239,7 @@ const ComingSoon: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
-                className="text-center text-base sm:text-lg md:text-lg 2xl:w-[85%] text-gray-700 mb-3 leading-relaxed"
+                className="text-center text-base sm:text-lg md:text-lg 2xl:w-[68%] text-gray-700 mb-3 leading-relaxed"
               >
                 An exclusive jewelry experience is on its way—where elegance
                 meets mystique, and every piece tells a story. Stay tuned as we
@@ -314,52 +316,88 @@ const ComingSoon: React.FC = () => {
 
       {/* Right side image slider */}
       <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1 }}
+  className="w-full md:w-[55%] relative overflow-hidden bg-[linear-gradient(to_bottom_right,_#F6F1E8,_#FFF9EF)]"
+>
+  {/* Gradient overlay */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1.5 }}
+    className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10"
+  ></motion.div>
+
+  {/* Image slider with persistent animation */}
+  <div
+    className="animate-scroll flex space-x-3"
+    style={{ willChange: "transform" }}
+  >
+    {/* First set of images */}
+    {sliderImages.map((image, index) => (
+      <motion.img
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="w-full md:w-[55%] relative overflow-hidden bg-[linear-gradient(to_bottom_right,_#F6F1E8,_#FFF9EF)]"
-      >
-        {/* Gradient overlay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10"
-        ></motion.div>
-
-        {/* Image slider with persistent animation */}
-        <div
-          className="animate-scroll flex space-x-3"
-          style={{ willChange: "transform" }}
-        >
-          {/* First set of images */}
-          {sliderImages.map((image, index) => (
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              key={index}
-              src={image}
-              className="h-[50vh] sm:h-screen object-cover"
-              alt={`Shaaman Jewelry ${index + 1}`}
-              loading="eager"
-            />
-          ))}
-          {/* Duplicate set of images for seamless scrolling */}
-          {sliderImages.map((image, index) => (
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              key={`duplicate-${index}`}
-              src={image}
-              className="h-[50vh] sm:h-screen object-cover"
-              alt={`Shaaman Jewelry ${index + 1}`}
-              loading="eager"
-            />
-          ))}
-        </div>
-      </motion.div>
+        transition={{ duration: 0.5 }}
+        key={index}
+        src={image}
+        className="h-[50vh] sm:h-screen object-cover"
+        alt={`Shaaman Jewelry ${index + 1}`}
+        loading="eager"
+      />
+    ))}
+    {/* Duplicate set of images for seamless scrolling */}
+    {sliderImages.map((image, index) => (
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        key={`duplicate-${index}`}
+        src={image}
+        className="h-[50vh] sm:h-screen object-cover"
+        alt={`Shaaman Jewelry ${index + 1}`}
+        loading="eager"
+      />
+    ))}
+    {sliderImages.map((image, index) => (
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        key={`duplicate-${index}`}
+        src={image}
+        className="h-[50vh] sm:h-screen object-cover"
+        alt={`Shaaman Jewelry ${index + 1}`}
+        loading="eager"
+      />
+    ))}
+    {sliderImages.map((image, index) => (
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        key={`duplicate-${index}`}
+        src={image}
+        className="h-[50vh] sm:h-screen object-cover"
+        alt={`Shaaman Jewelry ${index + 1}`}
+        loading="eager"
+      />
+    ))}
+    {sliderImages.map((image, index) => (
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        key={`duplicate-${index}`}
+        src={image}
+        className="h-[50vh] sm:h-screen object-cover"
+        alt={`Shaaman Jewelry ${index + 1}`}
+        loading="eager"
+      />
+    ))}
+  </div>
+</motion.div>
     </div>
   );
 };

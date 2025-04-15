@@ -25,14 +25,14 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
   
   .animate-scroll {
     display: flex;
     width: max-content;
-    animation: scroll 12s linear infinite;
+    animation: scroll 30000ms linear infinite;
   }
   
   .result-item {
