@@ -101,15 +101,13 @@ const ComingSoon: React.FC = () => {
 
     emailjs.send(serviceId,templateId,templateParams,publicKey)
     .then((response)=>{
-      console.log('Email send Successfully',response);
       setEmail("");
       setShowToast(true);
     })
     .catch((error)=>{
       console.log('Error senting email',error)
     })
-    // Handle email submission logic here
-    console.log("Email submitted:", email);
+
     // Show toast message
   };
 
