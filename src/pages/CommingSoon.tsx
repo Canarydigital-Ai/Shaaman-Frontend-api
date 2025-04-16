@@ -100,7 +100,7 @@ const ComingSoon: React.FC = () => {
     }
 
     emailjs.send(serviceId,templateId,templateParams,publicKey)
-    .then((response)=>{
+    .then((_)=>{
       setEmail("");
       setShowToast(true);
     })
