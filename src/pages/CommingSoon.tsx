@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser'
 import { motion } from "framer-motion";
 import Logo from "../assets/LogoMain.png";
 import ShaamanSlider1 from "../assets/ShaamanSlider1.png";
@@ -29,7 +30,7 @@ const ComingSoon: React.FC = () => {
   // Calculate the target date (5 days from now)
   useEffect(() => {
     // Set the specific start date: April 11, 2025
-    const startDate = new Date("2025-04-11T00:00:00");
+    const startDate = new Date("2025-04-16T00:00:00");
     
     // Calculate target date (5 days from start date)
     const targetDate = new Date(startDate);
@@ -90,11 +91,26 @@ const ComingSoon: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const serviceId ="service_qjk23ga"
+    const templateId ="template_lhb9bjw"
+    const publicKey ="yRqB12zhJfiYANARr"
+
+    const templateParams ={
+      user_email:email
+    }
+
+    emailjs.send(serviceId,templateId,templateParams,publicKey)
+    .then((response)=>{
+      console.log('Email send Successfully',response);
+      setEmail("");
+      setShowToast(true);
+    })
+    .catch((error)=>{
+      console.log('Error senting email',error)
+    })
     // Handle email submission logic here
     console.log("Email submitted:", email);
-    setEmail("");
     // Show toast message
-    setShowToast(true);
   };
 
   const formatTime = (time: number) => {
