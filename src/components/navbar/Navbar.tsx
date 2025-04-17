@@ -9,7 +9,7 @@ import { BsHandbag } from "react-icons/bs";
 const Navbar: React.FC = () => {
   return (
     <nav
-      className="flex justify-between items-center py-7 px-4 md:px-8 lg:px-20 bg-[#e4a03b3b] backdrop-blur-[22.8px] w-full z-50"
+      className="flex justify-between items-center py-7 px-4 md:px-8 lg:px-20  backdrop-blur-[22.8px] w-full z-50"
       style={{
         backgroundColor: "rgba(248, 246, 243, 0.23)", 
       }}
