@@ -20,9 +20,9 @@ const ComingSoon: React.FC = () => {
   const [timerEnded, setTimerEnded] = useState(false);
 
   const sliderImages = [
-    ShaamanSlider1,
-    ShaamanSlider2,
     ShaamanSlider3,
+    ShaamanSlider2,
+    ShaamanSlider1,
     ShaamanSlider4,
     ShaamanSlider5,
   ];
