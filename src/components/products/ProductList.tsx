@@ -80,11 +80,11 @@ const ProductList: React.FC = () => {
                 </div>
               </div>
               <div className="pt-6">
-                <h3 className="text-xl text-black font-normal">
+                <h3 className="text-[22px] text-black font-normal">
                   {product.title}
                 </h3>
                 <div className="flex justify-between items-center mt-2 mr-8">
-                  <span className="flex text-base text-black space-x-3">
+                  <span className="flex text-lg text-black space-x-3">
                     <span className="line-through">{product.price}</span>
                     <span>{product.price}</span>
                   </span>
