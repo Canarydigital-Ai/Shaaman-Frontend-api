@@ -5,8 +5,10 @@ import SectionSlider3 from '../../assets/ShaamanSlider5.png'
 import SectionSlider4 from '../../assets/SectionSlider4.png'
 import SectionSlider5 from '../../assets/SectionSlider5.png'
 import Navbar from "../navbar/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const Section1: React.FC = () => {
+    const navigate = useNavigate()
   const sliderImages = [
     SectionSlider1,
     SectionSlider2,
@@ -26,7 +28,7 @@ const Section1: React.FC = () => {
       <div className="flex flex-col md:flex-row w-full min-h-screen pt-16 md:pt-0">
         {/* Left side - Text content */}
         <div className="w-full md:w-1/2 flex flex-col justify-center p-6 sm:p-8 md:p-12 lg:p-16 xl:p-24">
-          <h1 className="nanum-myeongjo-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-[80px] mb-6 sm:mb-8 md:mb-10">
+          <h1 className="nanum-myeongjo-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-[80px] mb-6 sm:mb-8 md:mb-10"  style={{ letterSpacing: '-4px' }}>
             Where Every Jewel
             <br className="hidden sm:block" />
             Whispers Royalty
@@ -41,7 +43,7 @@ const Section1: React.FC = () => {
           </p>
 
           <div>
-            <button className="relative overflow-hidden border border-black px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 group ml-0 sm:ml-2">
+            <button onClick={()=>navigate('/products')} className="relative overflow-hidden border border-black px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 group ml-0 sm:ml-2">
               <span className="relative z-10 nanum-myeongjo-bold transition-colors duration-300 group-hover:text-white text-base sm:text-lg md:text-xl">Shop now</span>
               <span className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-400 ease-in-out"></span>
             </button>

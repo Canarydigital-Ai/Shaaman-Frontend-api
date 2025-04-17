@@ -51,7 +51,7 @@ const NewArrivals: React.FC = () => {
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-24">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
-        <h2 className="text-3xl md:text-[48px] font-serif font-normal" style={{ letterSpacing: '-2px' }}>
+        <h2 className="text-3xl md:text-[48px] nanum-myeongjo-regular" style={{ letterSpacing: '-4px' }}>
           New arrivals
         </h2>
         <button className="relative overflow-hidden border border-gray-800 px-4 py-2 text-sm font-medium text-gray-800 group transition">
@@ -62,15 +62,15 @@ const NewArrivals: React.FC = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">
         {products.map((product, index) => (
-          <div key={product.id} className="flex flex-col">
+          <div key={product.id} className="flex flex-col group cursor-pointer transition-transform duration-300 ease-in-out">
             {/* Product Image */}
-            <div className="relative mb-4">
+            <div className="relative mb-4 aspect-square overflow-hidden">
               <img 
                 src={product.image} 
                 alt={product.name}
-                className="w-full h-auto object-cover" 
+                className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-300" 
               />
             </div>
 

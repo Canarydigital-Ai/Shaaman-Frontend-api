@@ -1,7 +1,9 @@
 import React from 'react';
 import SareeImage from '../../assets/NewCollection1.png'
+import { useNavigate } from 'react-router-dom';
 
 const NewCollectionBanner: React.FC = () => {
+    const navigate = useNavigate()
   return (
     <div className="relative w-full h-[70vh] md:h-[75vh] overflow-hidden">
       {/* Background Image */}
@@ -34,9 +36,9 @@ const NewCollectionBanner: React.FC = () => {
           
           {/* Shop Now Button */}
           <div className="flex justify-center md:block">
-            <button className="relative mt-4 md:mt-6 px-4 md:px-6 py-2 border border-white text-white 
+            <button  onClick={()=>navigate('/products')} className="relative mt-4 md:mt-6 px-4 md:px-6 py-2 border border-white text-white 
               overflow-hidden group">
-              <span className="relative z-10 nanum-myeongjo-bold text-sm md:text-base transition-colors duration-300 
+              <span className="relative z-10 nanum-myeongjo-bold text-sm md:text-xl transition-colors duration-300 
                 group-hover:text-black">
                 Shop now
               </span>

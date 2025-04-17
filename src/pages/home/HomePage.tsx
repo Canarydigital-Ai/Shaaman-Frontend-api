@@ -2,6 +2,10 @@ import React from 'react'
 import Section1 from '../../components/home/Section1'
 import NewArrivals from '../../components/home/NewArrivals'
 import NewCollectionBanner from '../../components/home/NewCollectionBanner'
+import CategorySection from '../../components/home/CategorySection'
+import Necklace from '../../components/home/Necklace'
+import Testimonials from '../../components/home/Testimonials'
+import Footer from '../../components/footer/Footer'
 
 const HomePage:React.FC = () => {
   return (
@@ -9,6 +13,10 @@ const HomePage:React.FC = () => {
       <Section1 />
       <NewArrivals />
       <NewCollectionBanner />
+      <CategorySection />
+      <Necklace />
+      <Testimonials />
+      <Footer />
     </div>
   )
 }

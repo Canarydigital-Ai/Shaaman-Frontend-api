@@ -9,7 +9,14 @@
     font-style: normal;
   
 }
+.dm-sans-italic{
+  
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  
+  font-style: italic;
 
+}
 
 .nanum-myeongjo-regular {
     font-family: "Nanum Myeongjo", serif;
@@ -91,10 +98,10 @@
   }
   
   /* Pause animation on hover */
-  .auto-scroll-animation:hover {
+  /* .auto-scroll-animation:hover {
     animation-play-state: paused;
   }
-  
+   */
   /* Responsive breakpoints */
   @media (min-width: 640px) {
     .auto-scroll-animation {
