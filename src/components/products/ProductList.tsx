@@ -84,7 +84,7 @@ const ProductList: React.FC = () => {
                   {product.title}
                 </h3>
                 <div className="flex justify-between items-center mt-2 mr-8">
-                  <span className="flex text-base text-black space-x-3">
+                  <span className="flex text-lg text-black space-x-3">
                     <span className="line-through">{product.price}</span>
                     <span>{product.price}</span>
                   </span>
