@@ -20,9 +20,9 @@ const ComingSoon: React.FC = () => {
   const [timerEnded, setTimerEnded] = useState(false);
 
   const sliderImages = [
-    ShaamanSlider3,
-    ShaamanSlider2,
     ShaamanSlider1,
+    ShaamanSlider2,
+    ShaamanSlider3,
     ShaamanSlider4,
     ShaamanSlider5,
   ];
@@ -344,73 +344,18 @@ const ComingSoon: React.FC = () => {
   ></motion.div>
 
   {/* Image slider with persistent animation */}
-  <div
-    className="animate-scroll flex space-x-3"
-    style={{ willChange: "transform" }}
-  >
-    {/* First set of images */}
-    {sliderImages.map((image, index) => (
-      <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        key={index}
-        src={image}
-        className="h-[50vh] sm:h-screen object-cover"
-        alt={`Shaaman Jewelry ${index + 1}`}
-        loading="eager"
-      />
-    ))}
-    {/* Duplicate set of images for seamless scrolling */}
-    {sliderImages.map((image, index) => (
-      <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        key={`duplicate-${index}`}
-        src={image}
-        className="h-[50vh] sm:h-screen object-cover"
-        alt={`Shaaman Jewelry ${index + 1}`}
-        loading="eager"
-      />
-    ))}
-    {sliderImages.map((image, index) => (
-      <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        key={`duplicate-${index}`}
-        src={image}
-        className="h-[50vh] sm:h-screen object-cover"
-        alt={`Shaaman Jewelry ${index + 1}`}
-        loading="eager"
-      />
-    ))}
-    {sliderImages.map((image, index) => (
-      <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        key={`duplicate-${index}`}
-        src={image}
-        className="h-[50vh] sm:h-screen object-cover"
-        alt={`Shaaman Jewelry ${index + 1}`}
-        loading="eager"
-      />
-    ))}
-    {sliderImages.map((image, index) => (
-      <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        key={`duplicate-${index}`}
-        src={image}
-        className="h-[50vh] sm:h-screen object-cover"
-        alt={`Shaaman Jewelry ${index + 1}`}
-        loading="eager"
-      />
-    ))}
-  </div>
+  <div className="flex auto-scroll-animation gap-4">
+          {/* Original images followed by duplicates for seamless loop */}
+          {[...sliderImages, ...sliderImages].map((image, index) => (
+            <div key={index} className="w-[790px] flex-shrink-0">
+              <img
+                src={image}
+                alt={`Jewelry showcase ${index % sliderImages.length + 1}`}
+                className="w-full h-screen object-cover"
+              />
+            </div>
+          ))}
+        </div>
 </motion.div>
     </div>
   );

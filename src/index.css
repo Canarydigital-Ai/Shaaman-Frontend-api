@@ -17,6 +17,12 @@
     font-style: normal;
   }
   
+.nanum-myeongjo-bold {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
 
 
 
@@ -41,3 +47,22 @@
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
  
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-5 * (790px + 16px) + 16px));
+    }
+  }
+  
+  .auto-scroll-animation {
+    animation: scroll 15s linear infinite; /* Slower animation (15s) for smooth scrolling */
+   
+  }
+  
+  /* Pause animation on hover (optional) */
+  .auto-scroll-animation:hover {
+    animation-play-state: paused;
+  }

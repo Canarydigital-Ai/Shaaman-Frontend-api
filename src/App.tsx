@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import CommingSoon from "./pages/CommingSoon"
+import HomePage from "./pages/home/HomePage"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<CommingSoon />} />
+      <Route path="/home" element={<HomePage />} />
     </Routes>
     </>
   )
