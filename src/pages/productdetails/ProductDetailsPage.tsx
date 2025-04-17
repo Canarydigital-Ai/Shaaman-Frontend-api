@@ -1,35 +1,136 @@
-import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
-import ProductDetailImg1 from '../../assets/ProductDetail Img1.png'
-import ProductDetailImg2 from '../../assets/ProductDetailSub Img1.png'
+import React, { useState } from "react";
+import Navbar from "../../components/navbar/Navbar";
+import ProductDetailImg1 from "../../assets/ProductDetail Img1.png";
+import ProductDetailImg2 from "../../assets/ProductDetailSub Img1.png";
+import { IoStar } from "react-icons/io5";
+import Footer from "../../components/footer/Footer";
 
 const ProductDetailsPage: React.FC = () => {
+  const discountedPrice = 201.0;
+  const [quantity, setQuantity] = useState(1);
+
+  const handleIncrement = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
+
   return (
-    <div className='relative bg-gradient-to-t from-[#FFF9EF] to-[#F6F1E8] h-screen'>
-      <div className='w-full'>
-        <Navbar />
-      </div>
+    <>
+      <div className="relative bg-gradient-to-t from-[#FFF9EF] to-[#F6F1E8]">
+        <div className="w-full">
+          <Navbar />
+        </div>
 
-      <div className='px-20 flex justify-between'>
-        <div className='relative'>
-          <img src={ProductDetailImg1} alt="" className='w-full max-w-[580px] h-[655px] rounded-[30px]'/>
+        <div className="px-4 md:px-10 lg:px-20 py-10 md:py-20 flex flex-col gap-8 md:gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-20">
+            {/* Product Image */}
+            <div className="relative  ">
+              <img
+                src={ProductDetailImg1}
+                alt=""
+                className="w-full lg:w-[630px] h-auto lg:h-[645px] rounded-[20px] lg:rounded-[30px] object-cover"
+              />
+              <div className="absolute left-0 right-0 bottom-0 mx-auto flex bg-white w-fit border-x-4 lg:border-x-10 border-t-4 lg:border-t-10 border-white rounded-t-[10px] lg:rounded-t-[20px] gap-2 lg:gap-3 p-1 lg:p-2">
+                {[1, 2, 3, 4].map((item) => (
+                  <img
+                    key={item}
+                    src={ProductDetailImg2}
+                    alt=""
+                    className="w-12 h-12 lg:w-20 lg:h-20 object-cover rounded-sm lg:rounded-md"
+                  />
+                ))}
+              </div>
+            </div>
 
-          {/* image section */}
-          <div className='absolute left-0 bottom-0 translate-x-1/5 flex bg-white w-fit border-x-10 border-t-10  border-white rounded-t-[20px] gap-3'>
-            <img src={ProductDetailImg2} alt=""  />
-            <img src={ProductDetailImg2} alt=""  />
-            <img src={ProductDetailImg2} alt=""  />
-            <img src={ProductDetailImg2} alt=""  />
-            
+            {/* Product Details */}
+            <div className="space-y-4 md:space-y-6 lg:space-y-8 ">
+              <div className="space-y-3 lg:space-y-6">
+                <h1 className="text-4xl md:text-5xl lg:text-[70px] nanum-myeongjo-regular font-normal leading-tight lg:leading-20 w-full max-w-full lg:max-w-[430px] tracking-tighter">
+                  Aaranya Gold Necklace
+                </h1>
+                <p className="text-base md:text-lg lg:text-xl max-w-full lg:max-w-[810px]">
+                  Inspired by nature's elegance, the Aaranya Gold Necklace is
+                  crafted in 22K gold with intricate leaf motifs and fine
+                  detailing. A timeless piece that adds grace to festive and
+                  traditional looks
+                </p>
+              </div>
+
+              <div className="space-y-2 md:space-y-4">
+                <div className="flex flex-wrap items-center gap-3 md:gap-4">
+                  <p className="text-sm md:text-base font-medium text-[#797979] line-through">
+                    AED 251.00
+                  </p>
+                  <p className="text-base md:text-lg font-medium">
+                    AED {(discountedPrice * quantity).toFixed(2)}
+                  </p>
+
+                  <div className="bg-white border rounded-full w-[90px] md:w-[110px] h-[28px] md:h-[30px] flex items-center justify-between px-2 md:px-3 text-[16px] md:text-[18px]">
+                    <button
+                      className="cursor-pointer"
+                      onClick={handleDecrement}
+                      disabled={quantity === 1}
+                    >
+                      -
+                    </button>
+                    <span>{quantity}</span>
+                    <button
+                      className="cursor-pointer"
+                      onClick={handleIncrement}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="flex text-yellow-500 gap-1">
+                    {Array(5)
+                      .fill(0)
+                      .map((_, i) => (
+                        <span key={i}>
+                          <IoStar size={22} />
+                        </span>
+                      ))}
+                  </div>
+                  <p className="text-base md:text-xl">(4.8k reviews)</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 md:gap-4">
+                <button className="w-full md:w-[307px] h-[50px] md:h-[66px] bg-black text-white font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer">
+                  Buy Now
+                </button>
+                <button className="w-full md:w-[307px] h-[50px] md:h-[66px] border-2 font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Information */}
+          <div className="space-y-2 md:space-y-3">
+            <h1 className="text-2xl md:text-3xl lg:text-[36px] nanum-myeongjo-regular font-medium tracking-tighter">
+              Additional information
+            </h1>
+            <p className="text-base md:text-lg lg:text-xl max-w-full lg:max-w-7xl">
+              Inspired by the elegance of nature, the Aaranya Gold Necklace
+              features finely crafted leaf motifs in pure 22K gold. Its
+              intricate detailing and graceful design make it a perfect piece
+              for weddings, festivals, and traditional celebrations.
+            </p>
           </div>
         </div>
-
-        <div>
-          sdfgh
-        </div>
       </div>
-    </div>
-  )
-}
 
-export default ProductDetailsPage
+      <Footer />
+    </>
+  );
+};
+
+export default ProductDetailsPage;
