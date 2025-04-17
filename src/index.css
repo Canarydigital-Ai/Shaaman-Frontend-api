@@ -48,7 +48,25 @@
   }
  
 
-  @keyframes scroll {
+  @keyframes scrollMobile {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%); /* 5 slides × 100% */
+    }
+  }
+  
+  @keyframes scrollTablet {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%); /* 5 slides × 100% */
+    }
+  }
+  
+  @keyframes scrollDesktop {
     0% {
       transform: translateX(0);
     }
@@ -58,11 +76,24 @@
   }
   
   .auto-scroll-animation {
-    animation: scroll 15s linear infinite; /* Slower animation (15s) for smooth scrolling */
-   
+    animation: scrollMobile 15s linear infinite;
+    width: max-content;
   }
   
-  /* Pause animation on hover (optional) */
+  /* Pause animation on hover */
   .auto-scroll-animation:hover {
     animation-play-state: paused;
+  }
+  
+  /* Responsive breakpoints */
+  @media (min-width: 640px) {
+    .auto-scroll-animation {
+      animation: scrollTablet 18s linear infinite;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .auto-scroll-animation {
+      animation: scrollDesktop 20s linear infinite;
+    }
   }
