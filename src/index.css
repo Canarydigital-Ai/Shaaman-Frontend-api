@@ -32,7 +32,7 @@
   .animate-scroll {
     display: flex;
     width: max-content;
-    animation: scroll 30000ms linear infinite;
+    animation: scroll 45000ms linear infinite;
   }
   
   .result-item {
