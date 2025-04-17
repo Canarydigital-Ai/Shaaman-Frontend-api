@@ -11,7 +11,7 @@ const Banner:React.FC = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute left-36 top-1/2 w-[600px] transform -translate-y-1/2">
-  <h1 className="text-[48px] font-normal text-gray-800 leading-none">
+  <h1 className="text-[48px] font-normal text-[#373A24] leading-none">
     <span className="block">Beauty in Every</span>
     <span className="block text-[96px]">Sparkle</span>
   </h1>
