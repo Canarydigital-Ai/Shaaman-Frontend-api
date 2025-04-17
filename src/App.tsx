@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import CommingSoon from "./pages/CommingSoon"
 import HomePage from "./pages/home/HomePage"
 import ProductDetailsPage from "./pages/productdetails/ProductDetailsPage"
-import ProductPage from "./pages/Pdoduct/ProductPage"
+import ProductPage from "./pages/product/ProductPage"
 
 function App() {
 
