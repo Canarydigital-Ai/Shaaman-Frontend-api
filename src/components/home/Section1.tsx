@@ -16,7 +16,7 @@ const Section1: React.FC = () => {
   ];
 
   return (
-    <div className="relative w-full min-h-screen bg-[linear-gradient(to_bottom,_#F6F1E8,_#FFF9EF)]">
+    <div className="relative w-full min-h-screen border-b ">
       {/* Navbar - positioned at the top */}
       <div className="absolute top-0 left-0 right-0 z-10">
         <Navbar />

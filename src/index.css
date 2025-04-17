@@ -16,6 +16,11 @@
     font-weight: 500;
     font-style: normal;
   }
+.nanum-myeongjo-italic {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
   
 .nanum-myeongjo-bold {
     font-family: "Nanum Myeongjo", serif;
@@ -23,7 +28,12 @@
     font-style: normal;
   }
   
-
+  .anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 
 
   @keyframes scroll {
