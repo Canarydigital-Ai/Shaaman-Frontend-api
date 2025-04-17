@@ -253,7 +253,7 @@ const ComingSoon: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
-                className="text-center text-base sm:text-lg md:text-lg 2xl:w-[68%] text-gray-700 mb-3 leading-relaxed"
+                className="text-center text-base sm:text-lg md:text-lg xl:w-[85%] 2xl:w-[68%] text-gray-700 mb-3 leading-relaxed"
               >
                 An exclusive jewelry experience is on its way—where elegance
                 meets mystique, and every piece tells a story. Stay tuned as we
