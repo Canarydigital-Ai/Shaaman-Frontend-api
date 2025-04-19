@@ -5,7 +5,7 @@ import image2 from "../../assets/ProductImg-2.png";
 import image3 from "../../assets/ProductImg-3.png";
 
 const ProductList: React.FC = () => {
-    const [cartCount,setCartCount] = useState(0)
+  const [cartCount, setCartCount] = useState(0);
   const products = [
     {
       id: 1,
@@ -58,41 +58,50 @@ const ProductList: React.FC = () => {
   ];
   return (
     <>
-      <div className="px-20 py-28">
-        <h2 className="text-[48px] font-normal text-black mb-1 nanum-myeongjo-regular">
+      <div className="px-4 sm:px-8 lg:px-20 py-8 sm:py-16 lg:py-28">
+        <h2 className="text-2xl sm:text-3xl lg:text-[48px] font-normal text-black mb-1 nanum-myeongjo-regular">
           New arrivals
         </h2>
-        <p className="text-black mb-6 text-[24px] font-light">
+        <p className="text-black mb-4 sm:mb-6 text-base sm:text-xl lg:text-[24px] font-light">
           Discover the Sparkle with New Arrivals
         </p>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 space-y-12">
+        {/* Product Grid - Unchanged on large devices */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12 lg:mt-14 lg:space-y-12">
           {products.map((product) => (
-            <div key={product.id} className="overflow-hidden">
-              <div className="relative pb-3/4">
-                <div className="bg-gray-200 mb-2">
+            <div key={product.id} className="overflow-hidden transition-transform duration-500 ease-in-out group">
+              <div className="relative aspect-square overflow-hidden ">
+                <div className="bg-gray-200 mb-2 ">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="h-[588px] w-full object-cover"
+                    className="h-auto sm:h-auto lg:h-auto w-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
               </div>
-              <div className="pt-6">
-                <h3 className="text-[22px] text-black font-normal">
+              <div className="pt-1 pb-6 lg:pt-6">
+                <h3 className="text-base sm:text-lg lg:text-[22px] text-black font-normal">
                   {product.title}
                 </h3>
-                <div className="flex justify-between items-center mt-2 mr-8">
-                  <span className="flex text-lg text-black space-x-3">
+                <div className="flex justify-between items-center mt-2 sm:mr-4 lg:mr-8">
+                  <span className="flex text-sm sm:text-base lg:text-lg text-black space-x-2 sm:space-x-3">
                     <span className="line-through">{product.price}</span>
                     <span>{product.price}</span>
                   </span>
 
-                  <button className="bg-white flex items-center justify-between gap-6 border-[0.5px] border-black rounded-[90px] px-4 py-2 text-xs text-black hover:bg-gray-100">
-                    <FaMinus size={9} onClick={() => cartCount > 0 ? setCartCount(cartCount - 1) : null}/>
+                  {/* Cart button - unchanged on large screens */}
+                  <button className="bg-white flex items-center justify-between gap-3 sm:gap-4 lg:gap-6 border-[0.5px] border-black rounded-[90px] px-3 sm:px-4 lg:px-4 py-1 sm:py-2 text-xs hover:bg-gray-100">
+                    <FaMinus
+                      className="text-[9px] lg:text-[9px]"
+                      onClick={() =>
+                        cartCount > 0 ? setCartCount(cartCount - 1) : null
+                      }
+                    />
                     {cartCount}
-                    <FaPlus size={9} onClick={()=>setCartCount(cartCount+1)}/>
+                    <FaPlus
+                      className="text-[9px] lg:text-[9px]"
+                      onClick={() => setCartCount(cartCount + 1)}
+                    />
                   </button>
                 </div>
               </div>
