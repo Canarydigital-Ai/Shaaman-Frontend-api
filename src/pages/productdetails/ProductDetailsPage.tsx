@@ -42,24 +42,24 @@ const ProductDetailsPage: React.FC = () => {
                 className="w-full h-[350px] sm:h-[460px] md:h-[570px] lg:h-[600px] object-cover object-top rounded-2xl "
               />
 
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-t-[15px] px-3 pt-3 flex space-x-3 w-[280px] sm:w-[280px] md:w-[310px]"> 
-                  {thumbnailImages.map((img, index) => (
-                    <img
-                      key={index}
-                      src={img}
-                      alt={`Thumbnail ${index + 1}`}
-                      className={` w-14  h-14 md:w-16 md:h-16 object-cover rounded-lg cursor-pointer 
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-t-[15px] px-3 pt-3 flex space-x-3 w-[280px] sm:w-[280px] md:w-[310px]">
+                {thumbnailImages.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`Thumbnail ${index + 1}`}
+                    className={` w-14  h-14 md:w-16 md:h-16 object-cover rounded-lg cursor-pointer 
                     ${selectedImage === img}`}
-                      onClick={() => setSelectedImage(img)}
-                    />
-                  ))}
-                </div> 
+                    onClick={() => setSelectedImage(img)}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Product Details */}
             <div className="space-y-6 w-full lg:w-[550px] xl:w-[810px]">
               <div>
-                <h1 className="text-4xl md:text-[50px] xl:text-[70px] nanum-myeongjo-regular font-normal leading-tight xl:leading-20 w-full max-w-[430px] tracking-[-4px]">
+                <h1 className="text-3xl md:text-[50px] xl:text-[70px] nanum-myeongjo-regular font-normal leading-tight xl:leading-20 w-full max-w-[430px] lg:tracking-[-4px] tracking-[-2px]">
                   Aaranya Gold Necklace
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl">
@@ -73,13 +73,13 @@ const ProductDetailsPage: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-4">
-                    <span className="text-gray-500 line-through">
+                    <span className="text-gray-500 line-through lg:text-lg text-base">
                       AED {originalPrice.toFixed(2)}
                     </span>
-                    <span className="text-2xl font-semibold">
+                    <span className="lg:text-2xl text-lg font-semibold">
                       AED {discountedPrice.toFixed(2)}
                     </span>
-                  </div> 
+                  </div>
                   <div className="flex items-center justify-between border rounded-full px-3 py-1 space-x-3 w-[110px]">
                     <button
                       onClick={handleDecrement}
@@ -96,7 +96,6 @@ const ProductDetailsPage: React.FC = () => {
                 </div>
 
                 <div className="">
-
                   <div className="flex text-yellow-500 space-x-1">
                     {[...Array(5)].map((_, i) => (
                       <span key={i}>
@@ -128,7 +127,7 @@ const ProductDetailsPage: React.FC = () => {
 
           {/* Additional Information */}
           <div className="space-y-2 md:space-y-3">
-            <h1 className="text-2xl md:text-3xl lg:text-[36px] nanum-myeongjo-regular font-medium tracking-[-2px]">
+            <h1 className="text-2xl md:text-3xl lg:text-[36px] nanum-myeongjo-regular font-medium lg:tracking-[-2px] tracking-tight">
               Additional information
             </h1>
             <p className="text-base md:text-lg lg:text-xl max-w-full lg:max-w-7xl">
