@@ -3,6 +3,7 @@ import CommingSoon from "./pages/CommingSoon"
 import HomePage from "./pages/home/HomePage"
 import ProductDetailsPage from "./pages/productdetails/ProductDetailsPage"
 import ProductPage from "./pages/product/ProductPage"
+import CheckoutPage from "./pages/checkout/CheckoutPage"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/product-details" element={<ProductDetailsPage />} />
       <Route path="/products" element={<ProductPage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
     </Routes>
     </>
   )

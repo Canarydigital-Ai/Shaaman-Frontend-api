@@ -32,7 +32,7 @@ const CategorySection: React.FC = () => {
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-24 ">
       <div className="mb-8 md:mb-9">
-        <h2 className="text-3xl md:text-5xl nanum-myeongjo-regular  text-gray-800 tracking-[-4px]">
+        <h2 className="text-3xl md:text-5xl nanum-myeongjo-regular  text-gray-800 tracking-[-2px] md:tracking-[-4px]">
           Find Your Jewelry
         </h2>
         <p className="text-base md:text-xl mt-2">
@@ -53,7 +53,7 @@ const CategorySection: React.FC = () => {
                 className="w-[400px] object-fill group-hover:scale-110 transition-transform duration-300"
               />
             </div>
-            <p className="text-center  text-sm md:text-base bg-transparent backdrop-blur-[22.8px] mt-[-20px] text-[#000000] group-hover:text-gray-900">
+            <p className="text-center  text-sm md:text-xl bg-transparent backdrop-blur-[22.8px] mt-[-20px] text-[#000000] group-hover:text-gray-900">
               {category.name}
             </p>
           </div>

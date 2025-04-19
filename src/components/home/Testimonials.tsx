@@ -38,7 +38,7 @@ const testimonials = [
 const Testimonials: React.FC = () => {
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 pt-12 md:pt-24 pb-56">
-      <h2 className="text-3xl md:text-[48px] nanum-myeongjo-regular mb-12 tracking-[-4px]" >
+      <h2 className="text-3xl md:text-[48px] nanum-myeongjo-regular mb-12 tracking-[-2px] md:tracking-[-4px]" >
         Testimonials
       </h2>
       
