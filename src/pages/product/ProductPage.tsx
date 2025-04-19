@@ -7,7 +7,7 @@ import Footer from '../../components/footer/Footer'
 const ProductPage:React.FC = () => {
   return (
     <div className="max-w-full mx-auto bg-[#F8F2E9] min-h-screen">
-        <Navbar/>
+      <Navbar/>
       <Banner/>
       <ProductList/>
       <Footer />

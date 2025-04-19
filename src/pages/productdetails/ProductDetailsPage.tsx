@@ -136,7 +136,7 @@ const ProductDetailsPage: React.FC = () => {
 
           {/* Additional Information */}
           <div className="space-y-2 md:space-y-3">
-            <h1 className="text-2xl md:text-3xl lg:text-[36px] nanum-myeongjo-regular font-medium tracking-[-4px]">
+            <h1 className="text-2xl md:text-3xl lg:text-[36px] nanum-myeongjo-regular font-medium lg:tracking-[-4px] tracking-tight">
               Additional information
             </h1>
             <p className="text-base md:text-lg lg:text-xl max-w-full lg:max-w-7xl">

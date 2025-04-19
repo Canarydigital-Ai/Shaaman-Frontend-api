@@ -61,7 +61,7 @@ const ProductList: React.FC = () => {
   return (
     <>
       <div className="px-4 sm:px-8 lg:px-20 py-8 sm:py-16 lg:py-28">
-        <h2 className="text-2xl sm:text-3xl lg:text-[48px] font-normal text-black mb-1 nanum-myeongjo-regular" style={{ letterSpacing: "-4px" }}>
+        <h2 className="text-2xl sm:text-3xl lg:text-[48px] font-normal text-black mb-1 nanum-myeongjo-regular tracking-tight lg:tracking-[-4px]">
           New arrivals
         </h2>
         <p className="text-black mb-4 sm:mb-6 text-base sm:text-xl lg:text-[24px] font-light">
