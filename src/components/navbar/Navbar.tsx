@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
 
     {/* Mobile Menu Overlay */}
     {isMenuOpen && (
-      <div className="md:hidden fixed inset-0 bg-[#F6F2EB] h-[240px] z-40 mt-16 p-6 ">
+      <div className="md:hidden fixed inset-0 bg-[#F6F2EB] h-[160px] z-40 mt-16 p-6 ">
         <ul className="flex flex-col items-center space-y-4">
           <li
             className="font-semibold uppercase text-lg"
@@ -88,12 +88,7 @@ const Navbar: React.FC = () => {
             SALE
           </li>
           <li className="text-lg font-normal">Sarees</li>
-          <li className="text-lg font-normal">Jewelery</li>
-          <li className="flex justify-start mt-">
-            <button className=" bg-black text-white py-3 px-5 rounded-lg">
-              Shop Now
-            </button>
-          </li>
+          <li className="text-lg font-normal">Jewelery</li> 
         </ul>
       </div>
     )}
