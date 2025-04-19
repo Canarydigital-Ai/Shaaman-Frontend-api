@@ -42,13 +42,13 @@ const ProductDetailsPage: React.FC = () => {
                 className="w-full h-[350px] sm:h-[460px] md:h-[570px] lg:h-[600px] object-cover object-top rounded-2xl "
               />
 
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-t-[15px] px-3 pt-3 flex space-x-3 w-[220px] sm:w-[280px] md:w-[310px]"> 
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-t-[15px] px-3 pt-3 flex space-x-3 w-[280px] sm:w-[280px] md:w-[310px]"> 
                   {thumbnailImages.map((img, index) => (
                     <img
                       key={index}
                       src={img}
                       alt={`Thumbnail ${index + 1}`}
-                      className={`w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 object-cover rounded-lg cursor-pointer 
+                      className={` w-14  h-14 md:w-16 md:h-16 object-cover rounded-lg cursor-pointer 
                     ${selectedImage === img}`}
                       onClick={() => setSelectedImage(img)}
                     />
