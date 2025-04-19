@@ -3,8 +3,10 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import image1 from "../../assets/ProductImg-1.png";
 import image2 from "../../assets/ProductImg-2.png";
 import image3 from "../../assets/ProductImg-3.png";
+import { useNavigate } from "react-router-dom";
 
 const ProductList: React.FC = () => {
+  const navigate = useNavigate()
   const [cartCount, setCartCount] = useState(0);
   const products = [
     {
@@ -71,7 +73,7 @@ const ProductList: React.FC = () => {
           {products.map((product) => (
             <div key={product.id} className="overflow-hidden transition-transform duration-500 ease-in-out group">
               <div className="relative aspect-square overflow-hidden ">
-                <div className="bg-gray-200 mb-2 ">
+                <div className="bg-gray-200 mb-2 cursor-pointer "   onClick={()=>navigate('/product-details')}>
                   <img
                     src={product.image}
                     alt={product.title}
@@ -80,7 +82,7 @@ const ProductList: React.FC = () => {
                 </div>
               </div>
               <div className="pt-1 pb-6 lg:pt-6">
-                <h3 className="text-base sm:text-lg lg:text-[22px] text-black font-normal">
+                <h3 className="text-base sm:text-lg lg:text-[22px] text-black font-normal cursor-pointer" onClick={()=>navigate('/product-details')}>
                   {product.title}
                 </h3>
                 <div className="flex justify-between items-center mt-2 sm:mr-4 lg:mr-8">

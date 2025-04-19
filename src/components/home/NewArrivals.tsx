@@ -54,7 +54,7 @@ const NewArrivals: React.FC = () => {
         <h2 className="text-3xl md:text-[48px] nanum-myeongjo-regular tracking-[-2px] md:tracking-[-4px]">
           New arrivals
         </h2>
-        <button className="relative overflow-hidden border border-gray-800 px-4 py-2 text-sm font-medium text-gray-800 group transition">
+        <button className="relative overflow-hidden border border-gray-800 px-4 py-2 cursor-pointer text-sm font-medium text-gray-800 group transition">
           <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
             View Collection
           </span>

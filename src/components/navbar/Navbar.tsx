@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
     </div>
 
     {/* Logo - Centered on mobile */}
-    <div className="text-xl md:text-2xl font-light tracking-wider text-gray-800 mx-auto md:mx-0">
+    <div className="text-xl md:text-2xl font-light tracking-wider text-gray-800 mx-auto md:mx-0" onClick={()=>navigate('/home')}>
       <img src={ShaamanLogo} alt="Shaaman" className="h-8 md:h-10" />
     </div>
 
@@ -62,10 +62,10 @@ const Navbar: React.FC = () => {
       <button className="">
         <LuHeart size={24} />
       </button>
-      <button  className="">
+      <button onClick={()=>navigate('/auth')} className="cursor-pointer">
         <CgProfile size={24} />
       </button>
-      <button className="relative">
+      <button className="relative cursor-pointer" onClick={()=>navigate('/products')}>
         <BsHandbag size={24} />
       </button>
     </div>

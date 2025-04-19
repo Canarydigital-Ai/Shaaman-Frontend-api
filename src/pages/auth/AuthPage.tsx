@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import ShaamanLogin1 from '../../assets/LoginPageImg1.png'
 import Logo from "../../assets/LogoMain.png";
+import { useNavigate } from 'react-router-dom';
 
 const AuthPage :React.FC= () => {
+    const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(true);
   const [animating, setAnimating] = useState(false);
 
@@ -102,6 +104,7 @@ const AuthPage :React.FC= () => {
                   <button
                     type="submit"
                     className="w-full bg-black text-white py-4 text-xl  rounded-[31.5px]  font-medium hover:bg-gray-800 transition-colors"
+                    onClick={()=>navigate('/home')}
                   >
                     Create Account
                   </button>
@@ -223,6 +226,7 @@ const AuthPage :React.FC= () => {
                   <button
                     type="submit"
                     className="w-full bg-black text-white  text-xl py-4 rounded-[31.5px] font-medium hover:bg-gray-800 transition-colors"
+                    onClick={()=>navigate('/home')}
                   >
                     Create Account
                   </button>

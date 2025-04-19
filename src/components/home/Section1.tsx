@@ -43,7 +43,7 @@ const Section1: React.FC = () => {
           </p>
 
           <div>
-            <button onClick={()=>navigate('/products')} className="relative overflow-hidden border border-black px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 group ml-0 sm:ml-2">
+            <button onClick={()=>navigate('/products')} className="relative overflow-hidden border cursor-pointer border-black px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 group ml-0 sm:ml-2">
               <span className="relative z-10 nanum-myeongjo-bold transition-colors duration-300 group-hover:text-white text-base sm:text-lg md:text-xl">Shop now</span>
               <span className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-400 ease-in-out"></span>
             </button>

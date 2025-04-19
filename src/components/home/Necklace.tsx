@@ -86,7 +86,7 @@ const Necklace: React.FC = () => {
                 <div className='space-x-4'>
                     <button 
                         onClick={handlePrevClick}
-                        className="relative overflow-hidden border border-gray-800 rounded-full px-4 py-4 text-sm font-medium text-gray-800 group transition"
+                        className="relative overflow-hidden cursor-pointer border border-gray-800 rounded-full px-4 py-4 text-sm font-medium text-gray-800 group transition"
                     >
                         <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                             <FaChevronLeft />
@@ -95,7 +95,7 @@ const Necklace: React.FC = () => {
                     </button>
                     <button 
                         onClick={handleNextClick}
-                        className="relative overflow-hidden border border-gray-800 rounded-full px-4 py-4 text-sm font-medium text-gray-800 group transition"
+                        className="relative overflow-hidden border cursor-pointer border-gray-800 rounded-full px-4 py-4 text-sm font-medium text-gray-800 group transition"
                     >
                         <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                             <FaChevronRight />
