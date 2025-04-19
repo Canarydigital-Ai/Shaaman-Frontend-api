@@ -24,8 +24,8 @@ const NewCollectionBanner: React.FC = () => {
           </p>
           
           <p 
-            className="anton-regular text-5xl md:text-[128px] font-extrabold tracking-wide"
-            style={{ letterSpacing: '2px md:11px' }}
+            className="anton-regular text-5xl md:text-[128px] font-extrabold tracking-[4px] md:tracking-[11px]"
+            
           >
             SAREES
           </p>

@@ -51,7 +51,7 @@ const NewArrivals: React.FC = () => {
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-24">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
-        <h2 className="text-3xl md:text-[48px] nanum-myeongjo-regular" style={{ letterSpacing: '-4px' }}>
+        <h2 className="text-3xl md:text-[48px] nanum-myeongjo-regular tracking-[-2px] md:tracking-[-4px]">
           New arrivals
         </h2>
         <button className="relative overflow-hidden border border-gray-800 px-4 py-2 text-sm font-medium text-gray-800 group transition">
