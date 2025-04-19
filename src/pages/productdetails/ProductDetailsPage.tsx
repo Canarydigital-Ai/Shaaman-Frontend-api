@@ -27,44 +27,44 @@ const ProductDetailsPage: React.FC = () => {
           <Navbar />
         </div>
 
-        <div className="px-4 md:px-10 lg:px-20 py-10 md:py-20 flex flex-col gap-8 md:gap-16">
+        <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-24 flex flex-col gap-8 md:gap-16">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-20">
             {/* Product Image */}
             <div className="flex-1 space-y-4 md:space-y-6 max-w-full lg:max-w-[632px] relative">
-  {/* Main Product Image */}
-  <div className="relative">
-    <img
-      src={selectedImage}
-      alt="Aanya Gold Necklace"
-      className="w-full h-auto md:h-[500px] lg:h-[655px] object-cover rounded-[20px] lg:rounded-[30px]"
-    />
+              {/* Main Product Image */}
+              <div className="relative">
+                <img
+                  src={selectedImage}
+                  alt="Aanya Gold Necklace"
+                  className="w-full h-auto md:h-[500px] lg:h-[655px] object-cover rounded-[20px] lg:rounded-[30px]"
+                />
 
-    {/* Thumbnail Images - Responsive Positioning */}
-    <div className="flex justify-center md:justify-start space-x-2 md:space-x-4 bg-white absolute bottom-0 left-0 right-0 md:left-auto md:right-0 md:-translate-x-1/2 pt-2 px-2 md:pt-3 md:px-3 rounded-t-[15px] md:rounded-t-[20px] overflow-x-auto">
-      {[
-        ProductDetailImg1,
-        ProductDetailImg2,
-        ProductDetailImg2,
-        ProductDetailImg2,
-      ].map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt={`Thumbnail ${index + 1}`}
-          className={`w-14 h-14 md:w-20 md:h-20 object-cover rounded-md md:rounded-lg cursor-pointer transition-all duration-200 ${
-            selectedImage === img ? 'ring-2 ring-[#EBAD1B]' : 'opacity-80 hover:opacity-100'
-          }`}
-          onClick={() => setSelectedImage(img)}
-        />
-      ))}
-    </div>
-  </div>
-</div>
+                {/* Centered Thumbnail Images */}
+                <div className="flex justify-center gap-3 bg-white absolute bottom-0 left-1/2 transform -translate-x-1/2 pt-2 px-2 md:pt-3 md:px-3 rounded-t-[15px] md:rounded-t-[20px] w-full max-w-[280px]  lg:max-w-[380px]">
+                  {[
+                    ProductDetailImg1,
+                    ProductDetailImg2,
+                    ProductDetailImg2,
+                    ProductDetailImg2,
+                  ].map((img, index) => (
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`Thumbnail ${index + 1}`}
+                      className={`w-14 h-14 md:w-20 md:h-20 rounded-md md:rounded-lg cursor-pointer transition-all duration-200 ${
+                        selectedImage === img
+                      }`}
+                      onClick={() => setSelectedImage(img)}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Product Details */}
             <div className="space-y-4 md:space-y-6 lg:space-y-8 ">
               <div className="space-y-3 lg:space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-[70px] nanum-myeongjo-regular font-normal leading-tight lg:leading-20 w-full max-w-full lg:max-w-[430px] tracking-tighter">
+                <h1 className="text-4xl md:text-5xl lg:text-[70px] nanum-myeongjo-regular font-normal leading-tight lg:leading-20 w-full max-w-full lg:max-w-[430px] tracking-[-4px]">
                   Aaranya Gold Necklace
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl max-w-full lg:max-w-[810px]">
@@ -117,11 +117,18 @@ const ProductDetailsPage: React.FC = () => {
               </div>
 
               <div className="flex flex-col gap-3 md:gap-4">
-                <button className="w-full md:w-[307px] h-[50px] md:h-[66px] bg-black text-white font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer">
-                  Buy Now
+                <button className="relative overflow-hidden w-full md:w-[307px] h-[50px] md:h-[66px] bg-black text-white border-2 border-black font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer group transition">
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                    Buy Now
+                  </span>
+                  <span className="absolute inset-0 bg-[#FFF9EF] w-0 group-hover:w-full transition-all duration-400 ease-in-out"></span>
                 </button>
-                <button className="w-full md:w-[307px] h-[50px] md:h-[66px] border-2 font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer">
-                  Add to Cart
+
+                <button className="relative overflow-hidden w-full md:w-[307px] h-[50px] md:h-[66px] border-2 font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer group transition">
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                    Add to Cart
+                  </span>
+                  <span className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-400 ease-in-out"></span>
                 </button>
               </div>
             </div>
@@ -129,7 +136,7 @@ const ProductDetailsPage: React.FC = () => {
 
           {/* Additional Information */}
           <div className="space-y-2 md:space-y-3">
-            <h1 className="text-2xl md:text-3xl lg:text-[36px] nanum-myeongjo-regular font-medium tracking-tighter">
+            <h1 className="text-2xl md:text-3xl lg:text-[36px] nanum-myeongjo-regular font-medium tracking-[-4px]">
               Additional information
             </h1>
             <p className="text-base md:text-lg lg:text-xl max-w-full lg:max-w-7xl">
