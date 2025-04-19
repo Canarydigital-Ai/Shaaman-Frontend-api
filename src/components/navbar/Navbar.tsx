@@ -65,9 +65,6 @@ const Navbar: React.FC = () => {
       </button>
       <button className="relative">
         <BsHandbag size={24} />
-        <span className="absolute -top-2 -right-2 bg-[#EBAD1B] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-          0
-        </span>
       </button>
     </div>
 
