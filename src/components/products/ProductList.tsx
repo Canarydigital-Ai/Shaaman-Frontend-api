@@ -69,17 +69,17 @@ const ProductList: React.FC = () => {
         {/* Product Grid - Unchanged on large devices */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12 lg:mt-14 lg:space-y-12">
           {products.map((product) => (
-            <div key={product.id} className="overflow-hidden">
-              <div className="relative">
-                <div className="bg-gray-200 mb-2">
+            <div key={product.id} className="overflow-hidden transition-transform duration-500 ease-in-out group">
+              <div className="relative aspect-square overflow-hidden ">
+                <div className="bg-gray-200 mb-2 ">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="h-64 sm:h-96 lg:h-[588px] w-full object-cover"
+                    className="h-auto sm:h-auto lg:h-auto w-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
               </div>
-              <div className="pt-4 lg:pt-6">
+              <div className="pt-1 pb-6 lg:pt-6">
                 <h3 className="text-base sm:text-lg lg:text-[22px] text-black font-normal">
                   {product.title}
                 </h3>
