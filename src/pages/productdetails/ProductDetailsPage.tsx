@@ -8,6 +8,7 @@ import Footer from "../../components/footer/Footer";
 const ProductDetailsPage: React.FC = () => {
   const discountedPrice = 201.0;
   const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(ProductDetailImg1);
 
   const handleIncrement = () => {
     setQuantity((prev) => prev + 1);
@@ -29,23 +30,36 @@ const ProductDetailsPage: React.FC = () => {
         <div className="px-4 md:px-10 lg:px-20 py-10 md:py-20 flex flex-col gap-8 md:gap-16">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-20">
             {/* Product Image */}
-            <div className="relative  ">
-              <img
-                src={ProductDetailImg1}
-                alt=""
-                className="w-full lg:w-[630px] h-auto lg:h-[645px] rounded-[20px] lg:rounded-[30px] object-cover"
-              />
-              <div className="absolute left-0 right-0 bottom-0 mx-auto flex bg-white w-fit border-x-4 lg:border-x-10 border-t-4 lg:border-t-10 border-white rounded-t-[10px] lg:rounded-t-[20px] gap-2 lg:gap-3 p-1 lg:p-2">
-                {[1, 2, 3, 4].map((item) => (
-                  <img
-                    key={item}
-                    src={ProductDetailImg2}
-                    alt=""
-                    className="w-12 h-12 lg:w-20 lg:h-20 object-cover rounded-sm lg:rounded-md"
-                  />
-                ))}
-              </div>
-            </div>
+            <div className="flex-1 space-y-4 md:space-y-6 max-w-full lg:max-w-[632px] relative">
+  {/* Main Product Image */}
+  <div className="relative">
+    <img
+      src={selectedImage}
+      alt="Aanya Gold Necklace"
+      className="w-full h-auto md:h-[500px] lg:h-[655px] object-cover rounded-[20px] lg:rounded-[30px]"
+    />
+
+    {/* Thumbnail Images - Responsive Positioning */}
+    <div className="flex justify-center md:justify-start space-x-2 md:space-x-4 bg-white absolute bottom-0 left-0 right-0 md:left-auto md:right-0 md:-translate-x-1/2 pt-2 px-2 md:pt-3 md:px-3 rounded-t-[15px] md:rounded-t-[20px] overflow-x-auto">
+      {[
+        ProductDetailImg1,
+        ProductDetailImg2,
+        ProductDetailImg2,
+        ProductDetailImg2,
+      ].map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={`Thumbnail ${index + 1}`}
+          className={`w-14 h-14 md:w-20 md:h-20 object-cover rounded-md md:rounded-lg cursor-pointer transition-all duration-200 ${
+            selectedImage === img ? 'ring-2 ring-[#EBAD1B]' : 'opacity-80 hover:opacity-100'
+          }`}
+          onClick={() => setSelectedImage(img)}
+        />
+      ))}
+    </div>
+  </div>
+</div>
 
             {/* Product Details */}
             <div className="space-y-4 md:space-y-6 lg:space-y-8 ">
