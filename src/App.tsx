@@ -6,6 +6,7 @@ import ProductPage from "./pages/product/ProductPage"
 import CartandCheckoutPage from "./pages/cart/CartandCheckoutPage"
 import CheckoutPage from "./pages/checkout/CheckoutPage"
 import PaymentSuccessPage from "./pages/payment/PaymentSuccessPage"
+import AuthPage from "./pages/auth/AuthPage"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/cart-checkout" element={<CartandCheckoutPage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
       <Route path="/payment-success" element={<PaymentSuccessPage />} />
+      <Route path="/auth" element={<AuthPage />} />
     </Routes>
     </>
   )

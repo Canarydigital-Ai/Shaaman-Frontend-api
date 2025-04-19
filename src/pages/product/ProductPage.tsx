@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from '../../components/products/Banner'
 import ProductList from '../../components/products/ProductList'
 import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
 
 const ProductPage:React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const ProductPage:React.FC = () => {
         <Navbar/>
       <Banner/>
       <ProductList/>
+      <Footer />
     </div>
   )
 }

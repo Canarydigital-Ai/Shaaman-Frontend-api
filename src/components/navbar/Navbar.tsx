@@ -5,8 +5,10 @@ import { IoSearch } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
 import { BsHandbag } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -60,7 +62,7 @@ const Navbar: React.FC = () => {
       <button className="">
         <LuHeart size={24} />
       </button>
-      <button className="">
+      <button  className="">
         <CgProfile size={24} />
       </button>
       <button className="relative">
