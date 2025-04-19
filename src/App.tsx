@@ -7,6 +7,7 @@ import CartandCheckoutPage from "./pages/cart/CartandCheckoutPage"
 import CheckoutPage from "./pages/checkout/CheckoutPage"
 import PaymentSuccessPage from "./pages/payment/PaymentSuccessPage"
 import AuthPage from "./pages/auth/AuthPage"
+import AboutUsPage from "./pages/about/AboutUsPage"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/checkout" element={<CheckoutPage />} />
       <Route path="/payment-success" element={<PaymentSuccessPage />} />
       <Route path="/auth" element={<AuthPage />} />
+      <Route path="/about" element={<AboutUsPage />} />
     </Routes>
     </>
   )
