@@ -69,22 +69,22 @@ const PaymentSuccess: React.FC = () => {
 
               <hr className="my-4 border-t-3 border-[#969393] mt-10 mb-10" />
 
-              <div className="flex justify-between">
-                <span className="text-[20px] font-light">Sub Total</span>
-                <span className="text-[20px] font-light">603 AED</span>
+              <div className="flex justify-between space-y-2">
+                <span className="text-[20px] font-light"style={{lineHeight: "14px"}}>Sub Total</span>
+                <span className="text-[20px] font-light"style={{lineHeight: "14px"}}>603 AED</span>
               </div>
 
-              <div className="flex justify-between">
-                <span className="text-[#969393] text-[20px] font-light">Discount</span>
-                <span className="text-[#969393] text-[20px] font-light">-100 AED</span>
+              <div className="flex justify-between space-y-2">
+                <span className="text-[#969393] text-[20px] font-light" style={{lineHeight: "14px"}}>Discount</span>
+                <span className="text-[#969393] text-[20px] font-light"style={{lineHeight: "14px"}}>-100 AED</span>
               </div>
 
-              <div className="flex justify-between">
-                <span className="text-[20px] font-light">Delivery fee</span>
-                <span className="text-[20px] font-light">50 AED</span>
+              <div className="flex justify-between space-y-2">
+                <span className="text-[20px] font-light"style={{lineHeight: "14px"}}>Delivery fee</span>
+                <span className="text-[20px] font-light"style={{lineHeight: "14px"}}>50 AED</span>
               </div>
 
-              <div className="flex justify-between font-light text-[24px] mt-6">
+              <div className="flex justify-between font-light text-[24px] mt-6"style={{lineHeight: "30px"}}>
                 <span>Total</span>
                 <span>553 AED</span>
               </div>
@@ -99,12 +99,12 @@ const PaymentSuccess: React.FC = () => {
             {products.map((product, index) => (
               <div
                 key={product.id}
-                className={`flex items-center justify-between py-3 ${
+                className={`flex items-center justify-between py-4 ${
                   index > 0 ? "border-t border-gray-100" : ""
                 }`}
               >
                 <div className="flex space-x-3">
-                  <div className="w-16 h-16 rounded bg-gray-200 overflow-hidden">
+                  <div className="w-[98px] h-[90px] rounded overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.name}
@@ -112,23 +112,23 @@ const PaymentSuccess: React.FC = () => {
                     />
                   </div>
                   <div className="flex flex-col justify-center">
-                    <span className="text-base">{product.name} / </span>
-                    <span className="text-base text-gray-600">
+                    <span className="text-base font-normal">{product.name} / </span>
+                    <span className="text-base font-normal">
                       {product.description}
                     </span>
                   </div>
                 </div>
-                <span className="font-medium">{product.price}</span>
+                <span className="font-normal text-base">{product.price}</span>
               </div>
             ))}
           </div>
 
           {/* Action Buttons */}
-          <div className="w-full grid grid-cols-2 gap-3">
-            <button className="bg-black text-white py-3 px-4 rounded-md text-sm font-medium">
+          <div className="w-full grid grid-cols-2 gap-3 mt-6">
+            <button className="bg-black text-white py-6 px-4 rounded-[20px] text-[24px] font-light">
               Continue shopping
             </button>
-            <button className="bg-white border border-gray-300 text-gray-800 py-3 px-4 rounded-md text-sm font-medium">
+            <button className="bg-white border border-gray-300 text-gray-800 py-6 px-4 rounded-[20px] text-[24px] font-light">
               Back to home
             </button>
           </div>
