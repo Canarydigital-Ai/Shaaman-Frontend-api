@@ -29,7 +29,7 @@ const PaymentSuccess: React.FC = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen bg-[#F8F2E9] p-28">
-        <div className="w-full max-w-5xl flex flex-col items-center space-y-6">
+        <div className="w-full max-w-5xl flex flex-col items-center space-y-10">
           {/* Success Icon and Header */}
           <div className="flex flex-col items-center mb-2 leading-tight">
             <div className="w-[68px] h-[68px] rounded-[34px] border-[4px] border-[#009600] text-[#009600] flex justify-center items-center">
@@ -118,7 +118,7 @@ const PaymentSuccess: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <span className="font-normal text-base">{product.price}</span>
+                <span className="font-normal text-xl">{product.price}</span>
               </div>
             ))}
           </div>
