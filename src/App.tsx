@@ -5,6 +5,7 @@ import ProductDetailsPage from "./pages/productdetails/ProductDetailsPage"
 import ProductPage from "./pages/product/ProductPage"
 import CartandCheckoutPage from "./pages/cart/CartandCheckoutPage"
 import CheckoutPage from "./pages/checkout/CheckoutPage"
+import PaymentSuccessPage from "./pages/payment/PaymentSuccessPage"
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/products" element={<ProductPage />} />
       <Route path="/cart-checkout" element={<CartandCheckoutPage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/payment-success" element={<PaymentSuccessPage />} />
     </Routes>
     </>
   )
