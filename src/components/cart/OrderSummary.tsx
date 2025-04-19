@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const OrderSummary: React.FC = () => {
+  const navigate = useNavigate()
   return (
     <div className="rounded-[20px] md:rounded-[30px] px-4 md:px-6 lg:px-10 py-6 md:py-9 border-2 border-[#969393]">
       <h2 className="text-xl md:text-2xl font-normal mb-4 md:mb-6">
@@ -42,7 +44,7 @@ const OrderSummary: React.FC = () => {
       </div>
 
       {/* Checkout Button */}
-      <button className="relative w-full overflow-hidden px-4 border border-white py-2 sm:py-3 md:py-4 rounded-[15px] md:rounded-[20px] bg-black group">
+      <button onClick={()=>navigate('/checkout')} className="relative w-full overflow-hidden px-4 border border-white py-2 sm:py-3 md:py-4 rounded-[15px] md:rounded-[20px] bg-black group">
         <span className="relative z-10 transition-colors duration-700 group-hover:text-black text-white text-sm sm:text-base md:text-lg lg:text-xl">
           Checkout Now
         </span>

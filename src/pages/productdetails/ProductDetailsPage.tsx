@@ -4,8 +4,10 @@ import ProductDetailImg1 from "../../assets/ProductDetail Img1.png";
 import ProductDetailImg2 from "../../assets/ProductDetailSub Img1.png";
 import { IoStar } from "react-icons/io5";
 import Footer from "../../components/footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetailsPage: React.FC = () => {
+  const navigate =useNavigate()
   const [selectedImage, setSelectedImage] = useState(ProductDetailImg1);
   const [quantity, setQuantity] = useState(1);
   const originalPrice = 251.0;
@@ -115,7 +117,7 @@ const ProductDetailsPage: React.FC = () => {
                   <span className="absolute inset-0 bg-[#FFF9EF] w-0 group-hover:w-full transition-all duration-400 ease-in-out"></span>
                 </button>
 
-                <button className="relative overflow-hidden w-full md:w-[307px] h-[50px] md:h-[66px] border-2 font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer group transition">
+                <button onClick={()=>navigate('/cart')} className="relative overflow-hidden w-full md:w-[307px]  h-[50px] md:h-[66px] border-2 font-light py-2 md:py-3 rounded-[15px] md:rounded-[20px] text-lg md:text-2xl cursor-pointer group transition">
                   <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                     Add to Cart
                   </span>

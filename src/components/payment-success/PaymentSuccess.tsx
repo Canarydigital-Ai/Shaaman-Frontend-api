@@ -1,8 +1,10 @@
 import React from "react";
 import image from "../../assets/Order-Img1.png"
 import { IoCheckmark } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const PaymentSuccess: React.FC = () => {
+     const navigate = useNavigate()
   const products = [
     {
       id: 1,
@@ -117,11 +119,11 @@ const PaymentSuccess: React.FC = () => {
     </div>
 
     {/* Action Buttons */}
-    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 sm:mt-5 lg:mt-2">
-      <button className="bg-black text-white py-3 sm:py-4 lg:py-6 px-4 rounded-lg sm:rounded-xl lg:rounded-[20px] text-base sm:text-lg lg:text-[24px] font-light">
+    <div  className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 sm:mt-5 lg:mt-2">
+      <button onClick={()=>navigate('/home')} className="bg-black text-white py-3 sm:py-4 lg:py-6 px-4 rounded-lg sm:rounded-xl lg:rounded-[20px] text-base sm:text-lg lg:text-[24px] font-light">
         Continue shopping
       </button>
-      <button className="bg-white border border-gray-300 text-gray-800 py-3 sm:py-4 lg:py-6 px-4 rounded-lg sm:rounded-xl lg:rounded-[20px] text-base sm:text-lg lg:text-[24px] font-light mt-2 sm:mt-0">
+      <button onClick={()=>navigate('/home')}  className="bg-white border border-gray-300 text-gray-800 py-3 sm:py-4 lg:py-6 px-4 rounded-lg sm:rounded-xl lg:rounded-[20px] text-base sm:text-lg lg:text-[24px] font-light mt-2 sm:mt-0">
         Back to home
       </button>
     </div>

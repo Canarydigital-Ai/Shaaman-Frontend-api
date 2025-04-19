@@ -1,7 +1,9 @@
 import React from 'react'
 import ProductDetailSub from '../../assets/ProductDetailSub Img1.png'
+import { useNavigate } from 'react-router-dom';
 
 const RightSection:React.FC = () => {
+    const navigate = useNavigate()
     const [showAll, setShowAll] = React.useState(false);
   
     const items = [
@@ -62,7 +64,7 @@ const RightSection:React.FC = () => {
       }
       
     </div>
-    
+
     {/* Order summary */}
     <div className="rounded-[30px] px-10 py-8 border-2 border-[#969393] bg-transparent">
       <h2 className="text-2xl font-medium mb-4">Order summary</h2>
@@ -95,7 +97,7 @@ const RightSection:React.FC = () => {
         <span className="font-semibold text-xl">553 AED</span>
       </div>
 
-      <button className="relative w-full overflow-hidden px-4 border border-white sm:px-5 md:px-6 py-1.5 sm:py-4 rounded-[20px] bg-black group hover:font-semibold">
+      <button onClick={()=>navigate('/payment-success')} className="relative w-full overflow-hidden px-4 border border-white sm:px-5 md:px-6 py-1.5 sm:py-4 rounded-[20px] bg-black group hover:font-semibold">
   <span className="relative z-10 transition-colors duration-700 group-hover:text-black text-white text-base sm:text-lg md:text-2xl ">
     Checkout Now
   </span>
